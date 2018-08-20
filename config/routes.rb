@@ -27,5 +27,12 @@ Rails.application.routes.draw do
   get 'users/edit'
   get 'users/update'
   get 'users/destroy'
+
+  resources :users
+  resources :picture_tags  
+  resources :pictures 
+  resources :comments
+  resources :tags
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
