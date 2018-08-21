@@ -1,3 +1,4 @@
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -5,21 +6,24 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+User.destroy_all 
+Picture.destroy_all
+Tag.destroy_all
+PictureTag.destroy_all
+Comment.destroy_all 
 
-[1..99].each do |num|
+(1..15).each do |num|
     User.create(
       username:"user#{num}",
       email: "user#{num}@example.com",
       password: "test123"
     )
   end
-   
+
   ["nature", "houston", "art", "lol", "love", "relationship", "party", "ofc", "flatiron", "code", "shenanigans", "travel", "zzz", "thankful", "ily", "congrats", "bae", 'food', 'meow'].each do |tag_name|
     Tag.create(name: tag_name)
   end
-   
-  url = "http://www.defenders.org/sites/default/files/styles/large/public/dolphin-kristian-sekulic-isp.jpg"
-   
+
   kismetzzz = 'https://scontent-dfw5-1.cdninstagram.com/vp/1a26549409d8abb3efd2b2b528aa8987/5C06640B/t51.2885-15/e35/28765897_532640397137241_5321271158971039744_n.jpg'
 
   kismetkisses = 
@@ -44,67 +48,61 @@
   houston = 'https://slack-imgs.com/?c=1&url=https%3A%2F%2Fo.aolcdn.com%2Fimages%2Fdims3%2FGLOB%2Flegacy_thumbnail%2F600x314%2Fformat%2Fjpg%2Fquality%2F85%2Fhttp%253A%252F%252Fo.aolcdn.com%252Fhss%252Fstorage%252Fadam%252Fa4622f0464dedc7172b58089437fec7c%252FHouston-Mural-600jm121613.jpg'
 
   Picture.create(
-    image_url: url,
-    title: "Saw a dolphin!",
-    user_id: User.first.id
-  )
-
-  Picture.create(
     image_url: kismetzzz,
     title: "Rockabye baby",
-    user_id: User.all.[1].id
+    user_id: User.all[1].id
   )
 
   Picture.create(
     image_url: kismetkisses,
     title: "Muah!",
-    user_id: User.all.[2].id
+    user_id: User.all[2].id
   )
 
   Picture.create(
     image_url: kismetcoffee,
     title: "Coffee...Zzz...",
-    user_id: User.all.[3].id
+    user_id: User.all[3].id
   )
 
   Picture.create(
     image_url: daressalaam,
     title: "Tanzania - where Kelly got married!",
-    user_id: User.all.[4].id
+    user_id: User.all[4].id
   )
 
   Picture.create(
     image_url: kismetread,
     title: "Books are important.",
-    user_id: User.all.[5].id
+    user_id: User.all[5].id
   )
-  
+
   Picture.create(
     image_url: beach,
     title: "Zanzibar, Tanzania.  Where we would rather be.",
-    user_id: User.all.[6].id
+    user_id: User.all[6].id
   )
 
   Picture.create(
     image_url: corgashian,
     title: "Booty girl.",
-    user_id: User.all.[7].id
+    user_id: User.all[7].id
   )
 
   Picture.create(
     image_url: beefrib,
     title: "Pablo, this is not me.",
-    user_id: User.all.[8].id
+    user_id: User.all[8].id
   )
 
   Picture.create(
     image_url: accident,
     title: "Whatever works.",
-    user_id: User.all.[9].id
+    user_id: User.all[9].id
   )
 
   Picture.create(
     image_url: houston,
     title: "H-town best town. #art",
-    user_id: User.all.[10].id
+    user_id: User.all[0].id
   )

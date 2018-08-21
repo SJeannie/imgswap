@@ -1,2 +1,11 @@
-<h1>Pictures#show</h1>
-<p>Find me in app/views/pictures/show.html.erb</p>
+<h1><%=@picture.title%></h1>
+
+<ul><img class="circle responsive-img" src='<%= @picture.image_url%>'></ul>
+
+<% @picture.tags.each do |tag|%>
+<ul> #<%=tag.name %></ul>
+<% end %>
+
+<%= link_to 'Edit this post.', edit_picture_path(@picture) %>
+
+<%= link_to 'Return home.', pictures_path %>
