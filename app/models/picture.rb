@@ -22,12 +22,12 @@ class Picture < ApplicationRecord
     # end
 
     def image=( uploaded_image )
-        file_path = Rails.root.join('public', 'uploads',uploaded_image.original_filename ) 
+        file_path = Rails.root.join('app', 'assets', 'images',uploaded_image.original_filename ) 
 
         File.open(file_path, 'wb') do |file|
             file.write(uploaded_image.read)
         end
         
-        self.image_url = file_path
+        self.image_url = "http://localhost:3000/assets/#{uploaded_image.original_filename}"
     end
 end
