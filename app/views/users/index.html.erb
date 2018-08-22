@@ -1,5 +1,5 @@
 <h1>All Users</h1>
 
 <% @users.each do |user|%>
-  <ul><%= link_to user.username, user%></ul>
+  <ul><%= link_to user.username.capitalize, user%></ul>
 <% end %>
