@@ -11,7 +11,7 @@
     
     <h3>Or create a new tag:</h3>
     <%= pic.fields_for :tags, @picture.tags.new do |tag|  %>
-        <%= tag.text_field :name, placeholder: '#' %>
+        <%= tag.text_field.split(/,|, /) :name, placeholder: '#' %> 
     <% end %>
 
     <%= pic.submit %>
