@@ -1,2 +1,14 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<h1>Welcome!  Please login or signup!</h1>
+
+<% form_with model: @user do |user| %>
+  <%= user %>
+    <%= pic.fields_for :tags, @picture.tags.new do |tag|  %>
+        <%= tag.text_field :name, placeholder: '#' %>
+    <% end %>
+
+  <%= pic.submit  %>
+<% end %>
+
+   t.string :email
+      t.string :username
+      t.string :password_digest
