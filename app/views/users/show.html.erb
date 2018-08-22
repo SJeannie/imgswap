@@ -1,2 +1,11 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1><%= @user.username.capitalize %></h1>
+
+<p><%= link_to "Edit User Login Info", edit_user_path(@user), method: 'get' %></p>
+<p><%= link_to "Delete User", user_path(@user), :data => {:confirm => "Are you sure?", :method => "delete"} %></p>
+
+<p><% @user.pictures.each do |picture| %></p>
+  <p><img src='<%=picture.image_url%>'></p>
+  <h5><%=picture.title%></h5>
+<% end %>
+
+
