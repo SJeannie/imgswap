@@ -1,2 +1,8 @@
-<h1>Tags#index</h1>
-<p>Find me in app/views/tags/index.html.erb</p>
+<h1>All tags</h1>
+
+<h2>Total: <%= @tags.length %> tags</h2>
+
+<% @tags.each do |tag|%>
+    <ul><%= link_to tag.name, edit_tag_path(tag) %>
+    <%= button_to 'Delete this tag', tag, method: :delete, data: { confirm: 'Are you sure?' } %></ul>
+    <%end%>
