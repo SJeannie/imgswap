@@ -5,8 +5,9 @@ Rails.application.routes.draw do
 
   resources :users
   resources :picture_tags
-  resources :pictures
-  resources :comments
+  resources :pictures do 
+    resources :comments
+  end 
   resources :tags
 
   post 'sessions', to: 'sessions#create'

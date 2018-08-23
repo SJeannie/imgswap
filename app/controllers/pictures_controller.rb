@@ -10,11 +10,10 @@ class PicturesController < ApplicationController
   end
 
   def new
-    @picture = Picture.new 
+    @picture = Picture.new
   end
 
   def create
-    # byebug
     @picture = Picture.create(picture_params)
     redirect_to pictures_path
   end
@@ -36,10 +35,10 @@ class PicturesController < ApplicationController
     private
     def select_picture
       @picture = Picture.find(params[:id])
-    end 
+    end
 
     def picture_params
-      params.require(:picture).permit(:title, :image_url, :image, {tag_ids: []}, :tag_names)
+      params.require(:picture).permit(:title, :image_url, :image, :comment_content, {tag_ids: []}, :tag_names)
     end
 
 end
