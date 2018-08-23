@@ -1,6 +1,6 @@
 class Picture < ApplicationRecord
     belongs_to :user, optional: true
-    has_many :comments 
+    has_many :comments
     has_many :picture_tags
     has_many :tags, through: :picture_tags
 
@@ -26,6 +26,12 @@ class Picture < ApplicationRecord
             if tag_name.length
                 self.tags << Tag.create(name: tag_name)
             end
+        end
+    end
+
+    def comment_content=( comment )
+        if comment.length
+            self.comments << Comment.create(content: comment, picture: self)
         end
     end
 
