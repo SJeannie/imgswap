@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.create(comment_params)
-    redirect_to comments_path
+    redirect_to new_comments_path
   end
 
   def edit
@@ -38,7 +38,7 @@ class CommentsController < ApplicationController
   end 
 
   def comment_params
-    params.require(:comment).permit(:title, :image_url, :image, tags_attributes: [[:name]], tag_ids: [])
+    params.require(:comment).permit(:content, :user_id, :picture_id)
   end 
 
 end

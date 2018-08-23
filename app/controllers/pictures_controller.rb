@@ -28,7 +28,6 @@ class PicturesController < ApplicationController
     @picture.update(picture_params)
     
     redirect_to @picture
-
   end
 
   def destroy

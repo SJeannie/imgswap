@@ -1,6 +1,9 @@
-<h1>All Comments</h1>
+<h1>All Comments:</h1>
 
-<% @comments.each do |comments|%>
-    <ul><img class="circle responsive-img" src='<%= comments.image_url%>'></ul>
-    <ul><%= link_to comments.title, comments %></ul>
-    <%end%>
+<% @comments.each do |comment|%>
+    <p><%= comment.content %></p>
+<ul><img src="<%= comment.picture.image_url %>"></ul>
+ 
+<%end%>
+
+<%= link_to "Create a new comment", new_comment_path%>

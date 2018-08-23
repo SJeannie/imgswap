@@ -6,15 +6,6 @@
 
     <ul><img class="circle responsive-img" src='<%= @comment.image_url%>'></ul>
 
-    <h3> Tag your comment: <h3>
-    <%= c.collection_check_boxes :tag_ids, Tag.all, :id, :name%><br>
-    
-    <h3>Or create a new tag:</h3>
-    <%= c.fields_for :tags, @comment.tags.new do |tag|  %>
-        <%= tag.text_field :name, placeholder: '#' %>
-    <% end %>
-
-    <%= c.submit %>
 <% end %>
 
 <%= button_to 'Delete this comment', @comment, method: :delete, data: { confirm: 'Are you sure?' } %>
