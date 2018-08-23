@@ -14,8 +14,7 @@ class TagsController < ApplicationController
   end
 
   def create
-    # byebug
-    @tag = tag.create(tag_params)
+    @tag = Tag.create(tag_params)
     redirect_to tags_path
   end
 
@@ -29,7 +28,7 @@ class TagsController < ApplicationController
   end
 
   def destroy
-    @tag.destroy 
+    @tag.destroy
     redirect_to tags_path
   end
 
@@ -39,7 +38,7 @@ class TagsController < ApplicationController
     end
 
     def tag_params
-      params.require(:tag).permit(:title, :image_url, :image, tags_attributes: [[:name]], tag_ids: [])
-    end 
+      params.require(:tag).permit(:name)
+    end
 
 end

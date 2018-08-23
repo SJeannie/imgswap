@@ -7,7 +7,6 @@ class PicturesController < ApplicationController
   end
 
   def show
-
   end
 
   def new
@@ -26,11 +25,12 @@ class PicturesController < ApplicationController
 
   def update
     @picture.update(picture_params)
-    
     redirect_to @picture
   end
 
   def destroy
+    @picture.destroy
+    redirect_to pictures_path
   end
 
     private
@@ -39,7 +39,7 @@ class PicturesController < ApplicationController
     end 
 
     def picture_params
-      params.require(:picture).permit(:title, :image_url, :image, tags_attributes: [[:name]], tag_ids: [])
-    end 
+      params.require(:picture).permit(:title, :image_url, :image, {tag_ids: []}, :tag_names)
+    end
 
 end

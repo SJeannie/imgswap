@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
+
   before_action :define_user, only: [:show, :edit, :update, :destroy]
-  #before_action :redirect_if_not_logged_in, only: [:index]
- 
+  before_action :redirect_if_not_logged_in, only: [:index]
+
   def index
     @users = User.all
   end
@@ -14,19 +15,20 @@ class UsersController < ApplicationController
   end
 
   def create
+
     user = User.new(user_params)
     unless user.valid?
       flash[:error] = user.errors.full_messages.join('; ')
       redirect_to signup_path
     else
       user.save
-      session[:user_id] = user.id 
-      redirect_to users_path 
-    end 
+      session[:user_id] = user.id
+      redirect_to users_path
+    end
   end
 
   def edit
-    
+
   end
 
   def update

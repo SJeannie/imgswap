@@ -1,14 +1,15 @@
-<h1>Welcome!  Please login or signup!</h1>
+<h1>Edit your tag!</h1> 
+<%= form_with model: @tag do |f| %>
 
-<% form_with model: @user do |user| %>
-  <%= user %>
-    <%= pic.fields_for :tags, @picture.tags.new do |tag|  %>
-        <%= tag.text_field :name, placeholder: '#' %>
+    <label>tag name</label>
+    <%= f.text_field :name %><br>
+
+    <h3>Pictures with this tag:</h3>
+    <% @tag.pictures.each do |picture| %>
+    <%= link_to picture.title, picture %>
     <% end %>
 
-  <%= pic.submit  %>
+    <%= f.submit  %>
 <% end %>
 
-   t.string :email
-      t.string :username
-      t.string :password_digest
+<%= button_to 'Delete this tag', @tag, method: :delete, data: { confirm: 'Are you sure?' } %>
