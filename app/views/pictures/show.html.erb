@@ -2,7 +2,7 @@
 
 <ul><img class="circle responsive-img" src='<%= @picture.image_url%>'></ul>
 
-<% @picture.tags.each do |tag|%>
+<% @picture.tags.order(:name).each do |tag|%>
 <ul> #<%=tag.name %></ul>
 <% end %>
 

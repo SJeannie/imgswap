@@ -7,12 +7,11 @@
     <ul><img class="circle responsive-img" src='<%= @picture.image_url%>'></ul>
 
     <h3> Tag your picture: <h3>
-    <%= pic.collection_check_boxes :tag_ids, Tag.all, :id, :name%><br>
-    
+    <%= pic.collection_check_boxes :tag_ids, Tag.all.order(:name), :id, :name%><br>
+
     <h3>Or create a new tag:</h3>
-    <%= pic.fields_for :tags, @picture.tags.new do |tag|  %>
-        <%= tag.text_field.split(/,|, /) :name, placeholder: '#' %> 
-    <% end %>
+
+    <%= pic.text_field :tag_names, placeholder: '#' %>
 
     <%= pic.submit %>
 <% end %>
