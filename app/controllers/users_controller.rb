@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :define_user, only: [:show, :create, :edit, :update, :destroy]
+  before_action :define_user, only: [:show, :edit, :update, :destroy]
   #before_action :redirect_if_not_logged_in, only: [:index]
  
   def index
@@ -14,15 +14,15 @@ class UsersController < ApplicationController
   end
 
   def create
-    # user = User.create(user_params)
-
-    # if !user.valid?
-    #   flash[:error] = user.errors.full_messages[0]
-    #   redirect_to signup_path
-    # else
-    #   session[:user_id] = user.id 
-    #   redirect_to users_path 
-    # end 
+    user = User.new(user_params)
+    unless user.valid?
+      flash[:error] = user.errors.full_messages.join('; ')
+      redirect_to signup_path
+    else
+      user.save
+      session[:user_id] = user.id 
+      redirect_to users_path 
+    end 
   end
 
   def edit
@@ -45,7 +45,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user.permit(:username, :password, :password_confirmation))
+    params.require(:user).permit(:username, :password, :password_confirmation)
   end 
 
   def define_user
