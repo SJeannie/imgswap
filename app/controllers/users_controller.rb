@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
 
-  before_action :define_user, only: [:show, :edit, :update, :destroy]
+  before_action :define_user, only: [:edit, :update, :destroy]
+  before_action :define_session, only: [:index, :edit, :edit, :update, :destroy]
   before_action :redirect_if_not_logged_in, only: [:index]
 
   def index
-    @users = User.all
+
   end
 
   def show
@@ -47,11 +48,19 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :password, :password_confirmation)
+    params.require(:user).permit(:username, :email, :password, :password_confirmation)
   end 
 
   def define_user
-    @user = User.find(params[:id])
+    if (params[:id])
+      @user = User.find(params[:id])
+    else
+      @user = User.new
+    end
+  end
+
+  def define_session
+    @user = User.find(session[:user_id])
   end
 
 end

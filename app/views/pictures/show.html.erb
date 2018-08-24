@@ -1,6 +1,7 @@
 <h1><%=@picture.title%></h1>
 
 <ul><img style="width:100%" src='<%= @picture.image_url%>'></ul>
+<strong><ul>Posted by <%= @picture.user.username%></ul></strong>
 
 <% @picture.tags.order(:name).each do |tag|%>
 <ul> #<%=tag.name %></ul>
@@ -16,8 +17,5 @@
     <%= f.submit %>
   <% end %>
 <br>
-<%= link_to 'Edit this post.', edit_picture_path(@picture) %><br>
 
-<%= link_to 'Return home.', pictures_path %><br>
-
-<%= button_to 'Delete this picture', @picture, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Return to Picture Feed', pictures_path %><br>

@@ -1,5 +1,6 @@
-<h1>All Users</h1>
+<h1><%= @user.username.capitalize%></h1>
 
-<% @users.each do |user|%>
-  <ul><%= link_to user.username.capitalize, user%></ul>
+<% @user.pictures.each do |pic| %>
+  <%= link_to pic.title, edit_picture_path(pic) %><br>
+  <img src='<%=pic.image_url%>'>
 <% end %>

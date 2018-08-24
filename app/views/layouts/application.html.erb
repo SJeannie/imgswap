@@ -10,9 +10,12 @@
   </head>
 
   <body>
+
     <div id="main-container" class="container">
 
     <% if session[:user_id]%> 
+      <%= link_to 'Home', users_path %>
+      <%= link_to 'Feed', pictures_path %>
       <%= button_to 'logout', '/sessions', method: 'delete' %>
       <% end %>
     <%= yield %>
