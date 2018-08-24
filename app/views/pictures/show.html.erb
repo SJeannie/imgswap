@@ -1,6 +1,6 @@
 <h1><%=@picture.title%></h1>
 
-<ul><img class="circle responsive-img" src='<%= @picture.image_url%>'></ul>
+<ul><img style="width:100%" src='<%= @picture.image_url%>'></ul>
 <strong><ul>Posted by <%= @picture.user.username%></ul></strong>
 
 <% @picture.tags.order(:name).each do |tag|%>

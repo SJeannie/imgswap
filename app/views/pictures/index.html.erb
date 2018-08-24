@@ -1,6 +1,17 @@
 <h1>Picture Feed</h1>
 
-<% @pictures.each do |picture|%>
-    <ul><img class="circle responsive-img" src='<%= picture.image_url%>'></ul>
-    <ul><%= link_to picture.title, picture %></ul>
-    <%end%>
+<div id="main">
+	<div class="inner">
+		<div class="columns">
+
+
+            <% @pictures.each do |picture|%>
+            <div class="image fit">
+            <a href="<%= picture_path(picture) %>"><img src="<%= picture.image_url%>" alt="" /></a>
+
+            </div>
+            <%end%>
+
+        </div>
+    </div>
+</div>
