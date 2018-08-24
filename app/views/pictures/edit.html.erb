@@ -6,7 +6,7 @@
     <label>Picture Title</label>
     <%= pic.text_field :title %><br>
 
-    <ul><img class="circle responsive-img" src='<%= @picture.image_url%>'></ul>
+    <ul><img style="width:100%" src='<%= @picture.image_url%>'></ul>
 
     <h3> Tag your picture: <h3>
     <%= pic.collection_check_boxes :tag_ids, Tag.all.order(:name), :id, :name%><br>

@@ -3,10 +3,14 @@
 <ul><img style="width:100%" src='<%= @picture.image_url%>'></ul>
 <strong><ul>Posted by <%= @picture.user.username%></ul></strong>
 
+<div class="row">
 <% @picture.tags.order(:name).each do |tag|%>
-<ul> #<%=tag.name %></ul>
+ <div class="col-xs-4">
+  #<%=tag.name %>
+ </div>
 <% end %>
-
+</div>
+<br>
 <h2>Comments:</h2>
 <% @picture.comments.each do |comment|%>
   <ul><%=comment.content %> -<%=comment.user.username %></ul>
