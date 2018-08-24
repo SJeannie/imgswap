@@ -9,7 +9,8 @@
 
 <h2>Comments:</h2>
 <% @picture.comments.each do |comment|%>
-  <ul><%=comment.content %></ul>
+  <ul><%=comment.content %> -<%=comment.user.username %></ul>
+
 <% end %>
 
   <%= form_with model: Comment.new, url: picture_comments_path(@picture) do |f| %>

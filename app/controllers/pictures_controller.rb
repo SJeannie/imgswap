@@ -14,7 +14,9 @@ class PicturesController < ApplicationController
   end
 
   def create
-    @picture = Picture.create(picture_params)
+    @picture = Picture.new(picture_params)
+    @picture.user_id = session[:user_id]
+    @picture.save
     redirect_to pictures_path
   end
 

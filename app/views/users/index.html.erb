@@ -1,5 +1,8 @@
 <h1><%= @user.username.capitalize%></h1>
 
+<button><%= link_to 'Post a picture', new_picture_path %></button>
+<br><br>
+
 <% @user.pictures.each do |pic| %>
   <%= link_to pic.title, edit_picture_path(pic) %><br>
   <img src='<%=pic.image_url%>'>
