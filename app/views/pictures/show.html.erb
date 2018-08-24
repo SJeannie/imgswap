@@ -6,8 +6,18 @@
 <ul> #<%=tag.name %></ul>
 <% end %>
 
-<%= link_to 'Edit this post.', edit_picture_path(@picture) %>
+<h2>Comments:</h2>
+<% @picture.comments.each do |comment|%>
+  <ul><%=comment.content %></ul>
+<% end %>
 
-<%= link_to 'Return home.', pictures_path %>
+  <%= form_with model: Comment.new, url: picture_comments_path(@picture) do |f| %>
+    <%= f.text_field :content, placeholder: 'Add a comment...' %>
+    <%= f.submit %>
+  <% end %>
+<br>
+<%= link_to 'Edit this post.', edit_picture_path(@picture) %><br>
+
+<%= link_to 'Return home.', pictures_path %><br>
 
 <%= button_to 'Delete this picture', @picture, method: :delete, data: { confirm: 'Are you sure?' } %>
