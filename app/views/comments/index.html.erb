@@ -1,9 +1,7 @@
-<h1>All Comments:</h1>
+<h1>Comments for <%= @picture.title %></h1>
 
-<% @comments.each do |comment|%>
-    <p><%= comment.content %></p>
-<ul><img src="<%= comment.picture.image_url %>"></ul>
- 
+<img src="<%= @picture.image_url %>"></ul>
+
+<% @picture.comments.each do |comment|%>
+    <ul><%= comment.content %></ul>
 <%end%>
-
-<%= link_to "Create a new comment", new_comment_path%>

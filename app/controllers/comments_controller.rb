@@ -2,11 +2,11 @@ class CommentsController < ApplicationController
   before_action :select_comment, only: [:show, :edit, :update, :destroy]
 
   def index
-    @comments = Comment.order(:name)
+    @picture = Picture.find(params[:picture_id])
   end
 
   def show
-
+    @picture = Picture.find(@comment.picture_id)
   end
 
   def new
@@ -14,8 +14,8 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(comment_params)
-    # redirect_to @comment.picture
+    @comment = Comment.create(comment_params)
+    redirect_to @comment.picture
   end
 
   def edit
@@ -38,7 +38,11 @@ class CommentsController < ApplicationController
     end
 
     def comment_params
-      params.require(:comment).permit(:content, :user_id, :picture_id)
+      comment_params = params.require(:comment).permit(:content)
+      if params[:picture_id]
+        comment_params[:picture_id] = params[:picture_id]
+      end
+      comment_params
     end
 
 end

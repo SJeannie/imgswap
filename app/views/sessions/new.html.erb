@@ -1,15 +1,11 @@
-<h1>Edit your tag!</h1> 
-<%= form_with model: @tag do |f| %>
+<h1>Imgswap</h1>
 
-    <label>tag name</label>
-    <%= f.text_field :name %><br>
+<%= flash[:error] %>
 
-    <h3>Pictures with this tag:</h3>
-    <% @tag.pictures.each do |picture| %>
-    <%= link_to picture.title, picture %>
-    <% end %>
-
-    <%= f.submit  %>
+<%= form_with url: '/sessions' do |f| %>
+    <%= f.text_field :username, placeholder: 'enter your username'%>
+    <%= f.password_field :password, placeholder: 'enter your password'%>
+    <%= f.submit %>
 <% end %>
 
-<%= button_to 'Delete this tag', @tag, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Sign Up Now!', signup_path %>
