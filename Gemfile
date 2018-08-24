@@ -5,6 +5,8 @@ ruby '2.3.3'
 gem 'materialize-sass', '~> 1.0.0.rc2'
 gem 'bcrypt'
   #Add has_secure_password to the model for bcrypt to work.
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
   
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
